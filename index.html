@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelForge Studios | Extreme Conversion Web Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
+                    },
+                    colors: {
+                        deep: '#050505',
+                        brand: '#f4f4f0',
+                        accent: '#ff4d00'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #050505; color: #f4f4f0; overflow-x: hidden; font-family: 'Inter', sans-serif; }
+        .hero-title { line-height: 1; }
+        
+        /* Modernized Bento Cards (For non-pricing sections) */
+        .bento-card { background: rgba(20, 20, 20, 0.6); border: 1px solid rgba(255, 255, 255, 0.05); transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .bento-card:hover { border-color: #ff4d00; transform: translateY(-5px); box-shadow: 0 10px 40px rgba(255, 77, 0, 0.08); }
+        
+        /* Service Cards Micro-interactions */
+        .service-card { background: #ffffff; border: 1px solid transparent; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .service-card:hover { border-color: #ff4d00; box-shadow: 0 20px 40px rgba(0,0,0,0.1); transform: translateY(-5px) scale(1.02); }
+        .service-icon-wrap { transition: all 0.4s ease; }
+        .service-card:hover .service-icon-wrap { background-color: #ff4d00; color: #ffffff; transform: rotate(-10deg); }
+        .service-arrow { opacity: 0; transform: translateX(-10px); transition: all 0.3s ease; }
+        .service-card:hover .service-arrow { opacity: 1; transform: translateX(0); }
+
+        .fade-in { opacity: 0; transform: translateY(30px); }
+        
+        /* Kinetic Type Animation for Marquee */
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .marquee-inner { display: flex; width: 200%; animation: scroll 40s linear infinite; }
+        .marquee-item { flex: 0 0 50%; display: flex; justify-content: space-around; white-space: nowrap; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #ff4d00; border-radius: 3px; }
+        
+        /* Smooth Scroll */
+        html.lenis { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto !important; }
+        .lenis.lenis-stopped { overflow: hidden; }
+    </style>
+</head>
+<body class="antialiased selection:bg-accent selection:text-deep">
+
+    <nav class="fixed top-0 left-0 w-full z-50 mix-blend-difference p-6 md:p-8 flex justify-between items-center text-brand">
+        <a href="#" class="flex items-center">
+            <img src="logo.png" alt="PixelForge logo" class="h-8 md:h-10 w-auto brightness-0 invert">
+        </a>
+        <div class="hidden md:flex gap-8 font-medium">
+            <a href="#work" class="hover:opacity-70 transition-opacity">Work</a>
+            <a href="#services" class="hover:opacity-70 transition-opacity">Services</a>
+            <a href="#pricing" class="hover:opacity-70 transition-opacity">Pricing</a>
+        </div>
+        <a href="https://wa.me/918360552306" target="_blank" class="bg-brand text-deep px-6 py-3 rounded-full font-bold text-sm hover:bg-gray-200 transition-colors">Book a Call</a>
+    </nav>
+
+    <section class="min-h-[90vh] flex flex-col justify-center px-4 sm:px-6 md:px-16 pt-32 pb-16 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto w-full z-10 grid grid-cols-1 lg:grid-cols-5 gap-8 lg:items-end">
+            <div class="lg:col-span-3">
+                <h1 class="hero-title font-display font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-brand fade-in tracking-tight">
+                    WE BUILD WEBSITES<br> THAT TURN VISITORS<br> INTO CLIENTS.
+                </h1>
+            </div>
+            <div class="lg:col-span-2 flex flex-col gap-6 lg:text-right fade-in" style="animation-delay: 0.1s">
+                <p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-xl lg:ml-auto">
+                    Helping service-based businesses worldwide grow with high-converting, performance-driven web systems.
+                </p>
+                <div class="flex flex-wrap lg:justify-end gap-4 mt-4">
+                    <a href="https://wa.me/918360552306" target="_blank" class="bg-accent text-brand px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-accent transition-colors flex items-center gap-2">
+                        Book a Call
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                    <a href="#work" class="border border-brand text-brand px-8 py-4 rounded-full font-bold text-lg hover:bg-brand hover:text-deep transition-colors">
+                        View Our Work
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="border-y border-gray-800 py-8 bg-deep overflow-hidden">
+        <div class="marquee-inner">
+            <div class="marquee-item text-3xl md:text-5xl font-display font-bold text-gray-800">
+                <span>TRUSTED BY GROWING BUSINESSES</span>
+                <span class="text-accent">•</span>
+                <span class="hover:text-brand transition-colors cursor-default">REGENCY CAFE</span>
+                <span class="text-accent">•</span>
+                <span class="hover:text-brand transition-colors cursor-default">ATALAY KEBAB</span>
+                <span class="text-accent">•</span>
+                <span>ESCAPE MEDIA</span>
+                <span class="text-accent">•</span>
+            </div>
+            <div class="marquee-item text-3xl md:text-5xl font-display font-bold text-gray-800">
+                <span>TRUSTED BY GROWING BUSINESSES</span>
+                <span class="text-accent">•</span>
+                <span class="hover:text-brand transition-colors cursor-default">REGENCY CAFE</span>
+                <span class="text-accent">•</span>
+                <span class="hover:text-brand transition-colors cursor-default">ATALAY KEBAB</span>
+                <span class="text-accent">•</span>
+                <span>ESCAPE MEDIA</span>
+                <span class="text-accent">•</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 md:py-32 px-6 md:px-16 bg-white text-deep">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16">
+            <div class="lg:w-1/3 fade-in">
+                <h2 class="font-display text-4xl md:text-6xl font-bold leading-tight mb-8">Who We Work With.</h2>
+                <p class="text-lg text-gray-600">We specialize in helping dynamic, result-oriented businesses establish a world-class digital presence.</p>
+            </div>
+            <div class="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6 fade-in" style="animation-delay: 0.1s">
+                <div class="p-8 border border-gray-200 rounded-3xl group hover:border-accent hover:shadow-xl transition-all">
+                    <h3 class="text-xl font-semibold text-gray-500 mb-2 group-hover:text-accent transition-colors">Restaurants & Cafes</h3>
+                    <p class="text-lg">Turning diners into online bookings and visitors.</p>
+                </div>
+                <div class="p-8 border border-gray-200 rounded-3xl group hover:border-accent hover:shadow-xl transition-all md:mt-12">
+                    <h3 class="text-xl font-semibold text-gray-500 mb-2 group-hover:text-accent transition-colors">Local Service Businesses</h3>
+                    <p class="text-lg">Generating qualified leads and automating client acquisition.</p>
+                </div>
+                <div class="p-8 border border-gray-200 rounded-3xl group hover:border-accent hover:shadow-xl transition-all">
+                    <h3 class="text-xl font-semibold text-gray-500 mb-2 group-hover:text-accent transition-colors">Agencies</h3>
+                    <p class="text-lg">Modernizing the client facing front-end for improved perception.</p>
+                </div>
+                <div class="p-8 border border-gray-200 rounded-3xl group hover:border-accent hover:shadow-xl transition-all md:mt-12">
+                    <h3 class="text-xl font-semibold text-gray-500 mb-2 group-hover:text-accent transition-colors">Startups</h3>
+                    <p class="text-lg">Building high-impact initial platforms focused on growth and funding.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="py-24 md:py-32 px-6 md:px-16 bg-deep">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="font-display text-5xl md:text-8xl font-bold mb-16 md:mb-20 fade-in">Selected<br> Work.</h2>
+            
+            <div class="space-y-24 md:space-y-32">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center fade-in">
+                    <div class="rounded-3xl overflow-hidden bento-card relative aspect-video">
+                        <img src="regency.png" alt="Regency Cafe Redesign" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                    </div>
+                    <div class="space-y-6">
+                        <h3 class="font-display text-4xl md:text-5xl font-bold">Regency Cafe</h3>
+                        <p class="text-gray-400 text-lg md:text-xl leading-relaxed"><strong>Challenge:</strong> Outdated UK cafe needed to modernized its online visibility.<br><strong>Solution:</strong> A high-performance redesign built on modern standards.</p>
+                        <a href="https://regencycafe.co.uk/" target="_blank" class="inline-flex items-center gap-2 border-b-2 border-accent pb-2 font-bold group hover:text-accent transition-colors text-lg md:text-xl">
+                            View Website <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center fade-in md:flex-row-reverse">
+                    <div class="rounded-3xl overflow-hidden bento-card relative aspect-video md:order-2">
+                        <img src="atalay.png" alt="Atalay Kebab Redesign" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                    </div>
+                    <div class="space-y-6 md:order-1 md:text-right">
+                        <h3 class="font-display text-4xl md:text-5xl font-bold">Atalay Kebab</h3>
+                        <p class="text-gray-400 text-lg md:text-xl leading-relaxed"><strong>Challenge:</strong> Family business required an efficient digital storefront.<br><strong>Solution:</strong> A clean, mobile-optimized experience centered on conversions.</p>
+                        <a href="https://atalaykebab.co.uk/" target="_blank" class="inline-flex items-center gap-2 border-b-2 border-accent pb-2 font-bold group hover:text-accent transition-colors text-lg md:text-xl md:justify-end">
+                            View Website <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center fade-in">
+                    <div class="rounded-3xl overflow-hidden bento-card relative aspect-video">
+                        <img src="awwwards.png" alt="Awwwards Style Demo" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                    </div>
+                    <div class="space-y-6">
+                        <h3 class="font-display text-4xl md:text-5xl font-bold">Studio Demos</h3>
+                        <p class="text-gray-400 text-lg md:text-xl leading-relaxed">A trio of high-aesthetic, interaction-focused layouts for creative studios.</p>
+                        <div class="flex flex-wrap gap-3 pt-3">
+                            <a href="https://anmolcheema836.github.io/sundown-studio/" target="_blank" class="px-5 py-2 rounded-full bg-brand text-deep text-sm font-semibold hover:bg-gray-200 transition-colors">Sundown</a>
+                            <a href="https://anmolcheema836.github.io/thirtysixstudio" target="_blank" class="px-5 py-2 rounded-full bg-brand text-deep text-sm font-semibold hover:bg-gray-200 transition-colors">ThirtySix</a>
+                            <a href="https://anmolcheema836.github.io/duo-studio/" target="_blank" class="px-5 py-2 rounded-full bg-brand text-deep text-sm font-semibold hover:bg-gray-200 transition-colors">Duo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 md:py-32 px-6 md:px-16 bg-brand text-deep">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+            
+            <div class="lg:col-span-8 space-y-10 fade-in">
+                <h2 class="font-display text-5xl md:text-7xl font-bold leading-tight tracking-tight">What We Do.</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <div class="p-8 service-card rounded-[2rem] relative overflow-hidden group flex flex-col justify-between min-h-[280px]">
+                        <div class="flex justify-between items-start mb-6 relative z-10">
+                            <div class="w-14 h-14 rounded-full bg-deep text-white flex items-center justify-center font-display text-xl font-bold service-icon-wrap shadow-lg">01</div>
+                            <svg class="w-8 h-8 text-accent service-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </div>
+                        <div class="relative z-10">
+                            <h3 class="font-display text-3xl font-bold mb-3 group-hover:text-accent transition-colors">Website Design</h3>
+                            <p class="text-gray-600 text-lg leading-relaxed">Breathtaking, tailored visual systems built for modern aesthetics. No templates.</p>
+                        </div>
+                        <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-accent/5 rounded-full blur-3xl group-hover:bg-accent/10 transition-all duration-500 z-0"></div>
+                    </div>
+
+                    <div class="p-8 service-card rounded-[2rem] relative overflow-hidden group flex flex-col justify-between min-h-[280px] md:translate-y-8">
+                        <div class="flex justify-between items-start mb-6 relative z-10">
+                            <div class="w-14 h-14 rounded-full bg-deep text-white flex items-center justify-center font-display text-xl font-bold service-icon-wrap shadow-lg">02</div>
+                            <svg class="w-8 h-8 text-accent service-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </div>
+                        <div class="relative z-10">
+                            <h3 class="font-display text-3xl font-bold mb-3 group-hover:text-accent transition-colors">Development</h3>
+                            <p class="text-gray-600 text-lg leading-relaxed">Robust, pixel-perfect development (React, WordPress, PHP) for extreme speed.</p>
+                        </div>
+                        <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-accent/5 rounded-full blur-3xl group-hover:bg-accent/10 transition-all duration-500 z-0"></div>
+                    </div>
+
+                    <div class="p-8 service-card rounded-[2rem] relative overflow-hidden group flex flex-col justify-between min-h-[280px]">
+                        <div class="flex justify-between items-start mb-6 relative z-10">
+                            <div class="w-14 h-14 rounded-full bg-deep text-white flex items-center justify-center font-display text-xl font-bold service-icon-wrap shadow-lg">03</div>
+                            <svg class="w-8 h-8 text-accent service-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </div>
+                        <div class="relative z-10">
+                            <h3 class="font-display text-3xl font-bold mb-3 group-hover:text-accent transition-colors">Conversion Opt.</h3>
+                            <p class="text-gray-600 text-lg leading-relaxed">Strategic UI/UX structured to turning visitors into high-value leads.</p>
+                        </div>
+                        <div class="absolute -right-10 -top-10 w-40 h-40 bg-accent/5 rounded-full blur-3xl group-hover:bg-accent/10 transition-all duration-500 z-0"></div>
+                    </div>
+
+                    <div class="p-8 service-card rounded-[2rem] relative overflow-hidden group flex flex-col justify-between min-h-[280px] md:translate-y-8">
+                        <div class="flex justify-between items-start mb-6 relative z-10">
+                            <div class="w-14 h-14 rounded-full bg-deep text-white flex items-center justify-center font-display text-xl font-bold service-icon-wrap shadow-lg">04</div>
+                            <svg class="w-8 h-8 text-accent service-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </div>
+                        <div class="relative z-10">
+                            <h3 class="font-display text-3xl font-bold mb-3 group-hover:text-accent transition-colors">Redesign</h3>
+                            <p class="text-gray-600 text-lg leading-relaxed">Aggressive revamps of outdated platforms focused on dramatic growth.</p>
+                        </div>
+                        <div class="absolute -left-10 -top-10 w-40 h-40 bg-accent/5 rounded-full blur-3xl group-hover:bg-accent/10 transition-all duration-500 z-0"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-4 space-y-8 fade-in flex flex-col justify-center" style="animation-delay: 0.1s">
+                <h2 class="font-display text-5xl md:text-7xl font-bold leading-tight tracking-tight">Proof.</h2>
+                
+                <div class="p-8 rounded-[2rem] bg-deep text-white shadow-2xl transform hover:-translate-y-2 hover:rotate-1 transition-all duration-300 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-accent rounded-bl-full -z-10 opacity-20 group-hover:scale-150 transition-transform duration-500"></div>
+                    <svg class="w-10 h-10 text-accent mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    <p class="text-xl leading-relaxed mb-6">"Modern redesign for a UK-based cafe to dramatically improve online presence and visibility."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gray-700"></div>
+                        <p class="font-bold uppercase tracking-widest text-xs text-gray-400">Regency Cafe Project</p>
+                    </div>
+                </div>
+
+                <div class="p-8 rounded-[2rem] bg-white border border-gray-200 shadow-xl transform hover:-translate-y-2 hover:-rotate-1 transition-all duration-300 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gray-100 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500"></div>
+                    <svg class="w-10 h-10 text-gray-300 mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    <p class="text-xl leading-relaxed mb-6 text-deep">"High-performance landing page system for creative digital studios."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gray-200"></div>
+                        <p class="font-bold uppercase tracking-widest text-xs text-gray-500">Studio Builds</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 md:py-32 px-6 md:px-16 bg-deep">
+        <div class="max-w-4xl mx-auto relative">
+            <h2 class="font-display text-4xl md:text-6xl font-bold text-center mb-16 md:mb-24 fade-in">How It Works.</h2>
+            <div class="absolute top-48 left-1/2 -translate-x-1/2 w-1 h-3/4 bg-gray-800 rounded-full z-0 hidden md:block"></div>
+            
+            <div class="space-y-16 md:space-y-24 relative z-10">
+                <div class="grid grid-cols-1 md:grid-cols-5 items-center gap-6 md:gap-10 fade-in text-center md:text-left">
+                    <div class="md:col-span-2 md:text-right">
+                        <div class="text-5xl md:text-6xl font-display font-bold text-accent mb-2">01</div>
+                        <h3 class="text-2xl font-bold">Discovery</h3>
+                    </div>
+                    <div class="hidden md:flex w-16 h-16 rounded-full bg-accent text-brand items-center justify-center font-bold text-2xl mx-auto">1</div>
+                    <p class="md:col-span-2 text-lg md:text-xl text-gray-400">Analyzing goals, target audience, and engineering required functionality.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-5 items-center gap-6 md:gap-10 fade-in text-center md:text-left">
+                    <p class="md:col-span-2 text-lg md:text-xl text-gray-400 md:text-right order-3 md:order-1">Crafting clean, conversion-focused visual strategies tailored to your unique brand.</p>
+                    <div class="hidden md:flex w-16 h-16 rounded-full bg-accent text-brand items-center justify-center font-bold text-2xl mx-auto order-2">2</div>
+                    <div class="md:col-span-2 order-1 md:order-3">
+                        <div class="text-5xl md:text-6xl font-display font-bold text-accent mb-2">02</div>
+                        <h3 class="text-2xl font-bold">Design</h3>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-5 items-center gap-6 md:gap-10 fade-in text-center md:text-left">
+                    <div class="md:col-span-2 md:text-right">
+                        <div class="text-5xl md:text-6xl font-display font-bold text-accent mb-2">03</div>
+                        <h3 class="text-2xl font-bold">Development</h3>
+                    </div>
+                    <div class="hidden md:flex w-16 h-16 rounded-full bg-accent text-brand items-center justify-center font-bold text-2xl mx-auto">3</div>
+                    <p class="md:col-span-2 text-lg md:text-xl text-gray-400">Engineering a fast, responsive, and SEO-optimized system for peak performance.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-5 items-center gap-6 md:gap-10 fade-in text-center md:text-left">
+                    <p class="md:col-span-2 text-lg md:text-xl text-gray-400 md:text-right order-3 md:order-1">Final testing, aggressive delivery, and setting up the analytics framework for launch.</p>
+                    <div class="hidden md:flex w-16 h-16 rounded-full bg-brand text-deep items-center justify-center font-bold text-2xl mx-auto order-2">4</div>
+                    <div class="md:col-span-2 order-1 md:order-3">
+                        <div class="text-5xl md:text-6xl font-display font-bold text-accent mb-2">04</div>
+                        <h3 class="text-2xl font-bold">Launch</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-24 md:py-32 px-6 md:px-16 bg-white text-deep">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 md:mb-24 fade-in">
+                <h2 class="font-display text-5xl md:text-6xl font-bold mb-4 tracking-tight">Transparent Pricing.</h2>
+                <p class="text-xl md:text-2xl text-gray-600">High impact systems. Results oriented investments.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="fade-in relative h-full">
+                    <div class="relative rounded-3xl p-[1px] overflow-hidden bg-gray-800 h-full transform transition-transform duration-500 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(255,77,0,0.15)] group">
+                        <div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_70%,#ff4d00_100%)] animate-[spin_3s_linear_infinite] group-hover:bg-[conic-gradient(from_0deg,transparent_40%,#ff4d00_100%)] transition-all duration-500"></div>
+                        
+                        <div class="bg-deep text-brand rounded-[23px] p-8 md:p-10 flex flex-col relative z-10 h-full">
+                            <div class="flex items-center gap-2 mb-4"><div class="w-3 h-3 rounded-full bg-green-500"></div><span class="font-bold text-gray-400">Starter Website</span></div>
+                            <p class="text-gray-400 text-sm mb-8 h-10">Small businesses / startups just getting online.</p>
+                            <div class="font-display text-4xl md:text-5xl font-bold mb-8">$300 - $500</div>
+                            <ul class="space-y-4 text-lg md:text-xl flex-grow mb-12">
+                                <li>Up to 3 pages</li>
+                                <li>Mobile responsive design</li>
+                                <li>Basic UI/UX design</li>
+                                <li>Contact form integration</li>
+                                <li>Fast loading optimization</li>
+                            </ul>
+                            <p class="text-sm font-semibold text-gray-500 mb-8">Timeline: 3-5 days</p>
+                            <a href="https://wa.me/918360552306" target="_blank" class="w-full text-center py-4 rounded-full border border-brand font-semibold hover:bg-brand hover:text-deep transition-colors">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-in relative z-10 md:scale-105 h-full" style="animation-delay: 0.1s">
+                    <div class="absolute -top-4 -right-4 bg-brand text-accent px-5 py-2 rounded-full text-sm font-bold shadow-xl z-20">Most Popular</div>
+                    
+                    <div class="relative rounded-3xl p-[2px] overflow-hidden bg-accent/80 h-full transform transition-transform duration-500 shadow-2xl group">
+                        <div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_70%,#ffffff_100%)] animate-[spin_2.5s_linear_infinite] group-hover:bg-[conic-gradient(from_0deg,transparent_40%,#ffffff_100%)] transition-all duration-500"></div>
+                        
+                        <div class="bg-accent text-brand rounded-[22px] p-8 md:p-10 flex flex-col relative z-10 h-full">
+                            <div class="flex items-center gap-2 mb-4"><div class="w-3 h-3 rounded-full bg-blue-500"></div><span class="font-bold text-brand">Growth Website</span></div>
+                            <p class="text-brand/80 text-sm mb-8 h-10">Businesses that require leads & conversions.</p>
+                            <div class="font-display text-4xl md:text-5xl font-bold mb-8">$700 - $1200</div>
+                            <ul class="space-y-4 text-lg md:text-xl flex-grow mb-12">
+                                <li>Up to 8 pages</li>
+                                <li>Fully custom design</li>
+                                <li>Conversion-focused layout</li>
+                                <li>Speed optimization (CWV)</li>
+                                <li>Booking integration</li>
+                                <li>Analytics setup</li>
+                                <li class="text-brand font-semibold pt-2">+ Bonus: 1 landing page</li>
+                            </ul>
+                            <p class="text-sm font-semibold text-brand/80 mb-8">Timeline: 7-10 days</p>
+                            <a href="https://wa.me/918360552306" target="_blank" class="w-full text-center py-4 rounded-full bg-brand text-accent font-bold hover:bg-white hover:text-deep transition-colors">Book a Call</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-in relative h-full" style="animation-delay: 0.2s">
+                    <div class="relative rounded-3xl p-[1px] overflow-hidden bg-gray-800 h-full transform transition-transform duration-500 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(255,77,0,0.15)] group">
+                        <div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_70%,#ff4d00_100%)] animate-[spin_3s_linear_infinite] group-hover:bg-[conic-gradient(from_0deg,transparent_40%,#ff4d00_100%)] transition-all duration-500"></div>
+                        
+                        <div class="bg-deep text-brand rounded-[23px] p-8 md:p-10 flex flex-col relative z-10 h-full">
+                            <div class="flex items-center gap-2 mb-4"><div class="w-3 h-3 rounded-full bg-red-500"></div><span class="font-bold text-gray-400">Premium System</span></div>
+                            <p class="text-gray-400 text-sm mb-8 h-10">Serious businesses scaling online.</p>
+                            <div class="font-display text-4xl md:text-5xl font-bold mb-8">$1500 - $3000+</div>
+                            <ul class="space-y-4 text-lg md:text-xl flex-grow mb-12">
+                                <li>Fully custom (unlimited)</li>
+                                <li>Advanced UX strategy</li>
+                                <li>Conversion optimization (CRO)</li>
+                                <li>Performance focused</li>
+                                <li>SEO-ready structure</li>
+                                <li>CRM / email integration</li>
+                                <li class="text-accent font-semibold pt-2">+ Bonus: Strategy call</li>
+                            </ul>
+                            <p class="text-sm font-semibold text-gray-500 mb-8">Timeline: 2-3 weeks</p>
+                            <a href="https://wa.me/918360552306" target="_blank" class="w-full text-center py-4 rounded-full border border-brand font-semibold hover:bg-brand hover:text-deep transition-colors">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 md:py-32 px-6 md:px-16 bg-brand text-deep">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+            
+            <div class="md:col-span-1 fade-in flex justify-center">
+                <div id="particle-wrapper">
+                    <img class="next-particle" data-particle-gap="2" data-gravity="0.08" data-mouse-force="40" data-noise="10" data-init-position="random" data-init-direction="none" src="anmol.png" alt="anmol">
+                </div>
+            </div>
+
+            <div class="md:col-span-1 space-y-6 fade-in" style="animation-delay: 0.1s">
+                <h2 class="font-display text-5xl md:text-6xl font-bold mb-6">Hey, I'm Anmol.</h2>
+                <p class="text-2xl md:text-3xl font-display text-accent mb-4">"THE AGGRESSIVE BRUTALIST" Hand builds things that turn visitors into clients.</p>
+                <p class="text-lg text-gray-600 leading-relaxed">Developer & Founder of PixelForge Studios. I don't build generic websites. I engineer high-aesthetic, result-oriented web platforms purely optimized for performance and performance, ensuring modern design perception and conversion maximize results.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 md:py-40 px-6 md:px-16 bg-deep text-brand text-center relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10 fade-in">
+            <h2 class="font-display text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-extrabold hero-title mb-12 md:mb-16 tracking-tight">
+                LET'S BUILD A WEBSITE THAT ACTUALLY<br> <span class="text-accent">GETS YOU CLIENTS.</span>
+            </h2>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 md:gap-6 max-w-xl mx-auto">
+                <a href="https://wa.me/918360552306" target="_blank" class="bg-accent text-brand px-10 py-5 md:px-12 md:py-6 rounded-full font-bold text-lg md:text-xl hover:bg-white hover:text-accent transition-colors">
+                    Book a Call
+                </a>
+                <a href="https://wa.me/918360552306" target="_blank" class="border border-white text-white px-10 py-5 md:px-12 md:py-6 rounded-full font-bold text-lg md:text-xl hover:bg-white hover:text-deep transition-colors">
+                    Get Free Audit
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center text-gray-700 bg-deep border-t border-gray-900">
+        <p>&copy; 2026 PixelForge Studios. Performance Engineered.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="https://nextparticle.nextco.de/nextparticle.min.js"></script>
+    <script>
+        // Smooth Scroll (Lenis)
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Basic Reveal on Scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+    <style>
+        .fade-in { transition: 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</body>
+</html>
