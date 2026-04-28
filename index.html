@@ -55,10 +55,17 @@
         html.lenis { height: auto; }
         .lenis.lenis-smooth { scroll-behavior: auto !important; }
         .lenis.lenis-stopped { overflow: hidden; }
+
+        /* Preloader Styles */
+        #preloader { transition: opacity 0.8s ease-in-out; }
+        #preloader.hide { opacity: 0; pointer-events: none; }
     </style>
 </head>
 <body class="antialiased selection:bg-accent selection:text-deep">
 
+<div id="preloader" class="fixed inset-0 z-[100] bg-white flex items-center justify-center">
+    <video id="loader-video" src="loader.mp4" autoplay muted playsinline class="w-full max-w-md md:max-w-lg object-contain"></video>
+</div>
     <nav class="fixed top-0 left-0 w-full z-50 mix-blend-difference p-6 md:p-8 flex justify-between items-center text-brand">
         <a href="#" class="flex items-center">
             <img src="logo.png" alt="PixelForge logo" class="h-8 md:h-10 w-auto brightness-0 invert">
@@ -444,7 +451,7 @@
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
     <script src="https://nextparticle.nextco.de/nextparticle.min.js"></script>
     <script>
-        // Smooth Scroll (Lenis)
+        // Smooth Scroll (Lenis) Initialization
         const lenis = new Lenis({
             duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -453,11 +460,45 @@
             smooth: true,
         });
 
+        // Stop Lenis initially so user can't scroll while preloader is active
+        lenis.stop();
+
         function raf(time) {
             lenis.raf(time);
             requestAnimationFrame(raf);
         }
         requestAnimationFrame(raf);
+
+        // Preloader Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const preloader = document.getElementById('preloader');
+            const loaderVideo = document.getElementById('loader-video');
+
+            const removeLoader = () => {
+                preloader.classList.add('hide');
+                lenis.start(); // Re-enable scrolling
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 800); // Wait for transition to finish
+            };
+
+            if (loaderVideo) {
+                // When video finishes playing, remove loader
+                loaderVideo.addEventListener('ended', removeLoader);
+
+                // Fallback: If video fails to load/play, remove loader immediately
+                loaderVideo.addEventListener('error', removeLoader);
+
+                // Fallback: Max timeout in case autoplay is blocked by the browser
+                setTimeout(() => {
+                    if (!preloader.classList.contains('hide')) {
+                        removeLoader();
+                    }
+                }, 5000); // Adjust this max time if your video is longer
+            } else {
+                removeLoader();
+            }
+        });
 
         // Basic Reveal on Scroll
         const observer = new IntersectionObserver((entries) => {
